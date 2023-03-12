@@ -81,11 +81,11 @@ input {
 }
 
 .accordion__item-meme {
-	width: 50%;
+	width: 50vw;
 	height: 50vh;
-	background-color: lightgray;
 	border-radius: 1rem;
 	max-height: 0;
+	object-fit: contain;
 	opacity: 0;
 }
 
