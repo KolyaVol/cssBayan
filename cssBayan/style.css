@@ -1,0 +1,123 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Noto Serif", serif;
+	--font-size: 4vh;
+	transition: all 0.75s;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100vw;
+	padding: 2vh 10vw;
+}
+
+.accordion {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.accordion__title {
+	font-size: var(--font-size);
+}
+
+.accordion__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-top: 0.3vh lightgrey solid;
+	padding-top: 2vh;
+	margin-top: 2vh;
+	cursor: url(./images/cursor-main.png), pointer;
+}
+
+label:active {
+	cursor: url(./images/cursor-md.png), pointer;
+}
+
+.accordion__item-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	color: blue;
+	cursor: url(./images/cursor-main.png), pointer;
+}
+
+.accordion__item-description {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: calc(var(--font-size) * 0.7);
+}
+
+input {
+	display: none;
+}
+
+.accordion:hover .accordion__item-description {
+	color: black;
+}
+
+.accordion input:checked ~ label > .accordion__item-description,
+.accordion__item:hover .accordion__item-description {
+	margin-bottom: 2rem;
+	color: black;
+}
+
+.accordion__item-cross {
+	width: 2em;
+	transform: rotateZ(45deg);
+	opacity: 0;
+}
+
+.accordion:hover .accordion__item-cross {
+	opacity: 1;
+}
+
+.accordion input:checked ~ label > .accordion__item-description > img,
+.accordion__item:hover .accordion__item-cross {
+	transform: rotateZ(360deg);
+}
+
+.accordion__item-meme {
+	width: 50%;
+	height: 50vh;
+	background-color: lightgray;
+	border-radius: 1rem;
+	max-height: 0;
+	opacity: 0;
+}
+
+.accordion input:checked ~ label > .accordion__item-meme,
+.accordion__item:hover .accordion__item-meme {
+	max-height: 50vh;
+	opacity: 1;
+}
+
+@media (max-width: 820px) {
+	.accordion__item-meme {
+		width: 100%;
+		
+	}
+	.accordion__title {
+		font-size: calc(var(--font-size) * 0.7);
+	}
+	.accordion__item-description {
+		font-size: calc(var(--font-size) * 0.5);
+	}
+}
+
+@media (max-width: 320px) {
+	.accordion__title {
+		font-size: calc(var(--font-size) * 0.7);
+	}
+	.accordion__item-description {
+		font-size: calc(var(--font-size) * 0.5);
+	}
+}
